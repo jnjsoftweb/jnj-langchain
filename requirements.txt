@@ -4,5 +4,10 @@ langchain-community
 langchain-openai
 openai
 anthropic
-gemini-ai
+langchain_anthropic
+google-generativeai
+langchain-google-genai
 streamlit
+pypdf
+chromadb
+tiktoken

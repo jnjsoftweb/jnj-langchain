@@ -24,6 +24,7 @@ def create_gemini_model(
     
     default_options = {
         "temperature": 0.7,
+        "max_tokens": 4095,
         "api_key": os.getenv("GEMINI_API_KEY"),
         "streaming": True
     }
@@ -34,11 +35,18 @@ def create_gemini_model(
         options = {**default_options, **options}
     
     llm = ChatGoogleGenerativeAI(
-        model=model_name,
-        temperature=options["temperature"],
         google_api_key=options["api_key"],
+        model=model_name,
+        max_output_tokens=options["max_tokens"],
+        temperature=options["temperature"],
         streaming=options["streaming"],
         convert_system_message_to_human=True
     )
     
     return llm
+
+
+if __name__ == "__main__":
+    model = "gemini-1.5-flash"
+    llm = create_gemini_model(model)
+    print(llm)

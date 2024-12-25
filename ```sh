@@ -1,0 +1,7 @@
+```sh
+python -m pip install --break-system-packages --upgrade pipenv
+
+pipenv --python 3.12
+
+pipenv install -r requirements.txt
+```

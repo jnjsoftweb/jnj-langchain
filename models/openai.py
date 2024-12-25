@@ -25,6 +25,7 @@ def create_openai_model(model="gpt-3.5-turbo", options=None):
     
     default_options = {
         "temperature": 0.7,
+        "max_tokens": 4095,
         "streaming": True,
         "api_key": os.getenv("OPENAI_API_KEY")
     }
@@ -37,6 +38,7 @@ def create_openai_model(model="gpt-3.5-turbo", options=None):
     return OpenAI(
         openai_api_key=options["api_key"],
         model=model,
+        max_tokens=options["max_tokens"],
         temperature=options["temperature"],
         streaming=options["streaming"]
     )
